@@ -1,0 +1,18 @@
+{
+  "name": "disposable-email-detector",
+  "version": "1.0.0",
+  "description": "disposable email detector",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node index.js"
+  },
+  "keywords": ["disposable", "email", "detector","email-detector", "disposable-email-detector","disposable-email"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.25",
+    "typescript": "^5.4.2"
+  }
+}
