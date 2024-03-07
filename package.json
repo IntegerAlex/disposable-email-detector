@@ -4,7 +4,7 @@
   "description": "disposable email detector",
   "main": "index.js",
   "scripts": {
-    "test": "node usage.js",
+    "test": "node test/usage.js",
     "build": "tsc",
     "start": "node index.js"
   },
