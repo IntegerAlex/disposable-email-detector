@@ -1,15 +1,17 @@
 import fs from 'fs/promises';
-import Path from 'path';
+import Path from 'path'; 
+
+// Function to detect disposable email addresses
 export default async function disposableEmailDetector(email: string): Promise<boolean> {
   try {
     // Load the list of disposable email domains from the index.json file
     const disposableDomainsBuffer = await fs.readFile(Path.join(__dirname, 'index.json')); 
     const disposableDomains = JSON.parse(disposableDomainsBuffer.toString());
-
+    
     // Extract the domain from the email address
-    const domain = email.split('@')[1].toLowerCase();
+    const domain = email.split('@')[1].toLowerCase(); // Get the domain part of the email address and convert it to lowercase
 
-    // Check if the domain is in the list of disposable domains
+    // Check if the domain is in the list of disposable domains 
     return disposableDomains.includes(domain);
 
   } catch (error: any) {
