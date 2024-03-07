@@ -11,12 +11,22 @@ async function loadTestEmails(filePath: string): Promise<string[]> {
 }
 
 async function runTests() {
+    try {
   const testEmails = await loadTestEmails(filePath);
 
   for (const email of testEmails) {
     const isDisposable = await disposableEmailDetector(email);
     console.log(email, '- Disposable:', isDisposable);
   }
+    console.log('Test passed.');
+}
+catch (error: any) {
+  console.error('Unexpected error:', error);
+  console.error('Please check the file path and try again.');
+  console.error('Test failed.');
+}
+
+
 }
 
 runTests();
