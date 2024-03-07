@@ -29,7 +29,7 @@ The `disposable-email-detector` is a TypeScript utility designed to identify dis
 ```
 
 ```javascript
-    import { disposableEmailDetector } from 'disposable-email-detector';
+    import  disposableEmailDetector  from 'disposable-email-detector';
 
     const email = 'test@mailinator.com';
 
