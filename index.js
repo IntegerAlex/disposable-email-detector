@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const promises_1 = __importDefault(require("fs/promises"));
 const path_1 = __importDefault(require("path"));
+// Function to detect disposable email addresses
 function disposableEmailDetector(email) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -21,8 +22,8 @@ function disposableEmailDetector(email) {
             const disposableDomainsBuffer = yield promises_1.default.readFile(path_1.default.join(__dirname, 'index.json'));
             const disposableDomains = JSON.parse(disposableDomainsBuffer.toString());
             // Extract the domain from the email address
-            const domain = email.split('@')[1].toLowerCase();
-            // Check if the domain is in the list of disposable domains
+            const domain = email.split('@')[1].toLowerCase(); // Get the domain part of the email address and convert it to lowercase
+            // Check if the domain is in the list of disposable domains 
             return disposableDomains.includes(domain);
         }
         catch (error) {

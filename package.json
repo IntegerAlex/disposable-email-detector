@@ -1,6 +1,6 @@
 {
   "name": "disposable-email-detector",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "disposable email detector",
   "main": "index.js",
   "scripts": {
