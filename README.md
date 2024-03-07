@@ -1,6 +1,7 @@
 # Disposable Email Detector
 
 [![CodeScene Code Health](https://codescene.io/projects/50926/status-badges/code-health)](https://codescene.io/projects/50926)
+[![DeepScan grade](https://deepscan.io/api/teams/23370/projects/26631/branches/850159/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=23370&pid=26631&bid=850159)
 ![workflow](https://github.com/IntegerAlex/disposable-email-detector/actions/workflows/main.yml/badge.svg)
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/8638/badge)](https://www.bestpractices.dev/projects/8638)
 [![DeepSource](https://app.deepsource.com/gh/IntegerAlex/disposable-email-detector.svg/?label=resolved+issues&show_trend=true&token=49_pbJHQLpxvaUFKZ5pbct86)](https://app.deepsource.com/gh/IntegerAlex/disposable-email-detector/)
