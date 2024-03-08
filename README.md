@@ -5,6 +5,8 @@
 ![workflow](https://github.com/IntegerAlex/disposable-email-detector/actions/workflows/main.yml/badge.svg)
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/8638/badge)](https://www.bestpractices.dev/projects/8638)
 [![DeepSource](https://app.deepsource.com/gh/IntegerAlex/disposable-email-detector.svg/?label=resolved+issues&show_trend=true&token=49_pbJHQLpxvaUFKZ5pbct86)](https://app.deepsource.com/gh/IntegerAlex/disposable-email-detector/)
+
+![NPM Downloads](https://img.shields.io/npm/dt/disposable-email-detector?style=plastic&logo=npm)
 ![NPM Version](https://img.shields.io/npm/v/disposable-email-detector)
 
 ## Overview
