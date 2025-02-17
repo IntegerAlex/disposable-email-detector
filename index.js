@@ -1,5 +1,5 @@
 "use strict";
-var __awaiter = (this?.__awaiter) || function (thisArg, _arguments, P, generator) {
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -8,19 +8,28 @@ var __awaiter = (this?.__awaiter) || function (thisArg, _arguments, P, generator
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this?.__importDefault) || function (mod) {
-    return (mod?.__esModule) ? mod : { "default": mod };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = disposableEmailDetector;
 const promises_1 = __importDefault(require("fs/promises"));
 const path_1 = __importDefault(require("path"));
+let cachedDomains = undefined;
+const loadDomains = () => __awaiter(void 0, void 0, void 0, function* () {
+    if (cachedDomains)
+        return cachedDomains;
+    const disposableDomainsBuffer = yield promises_1.default.readFile(path_1.default.join(__dirname, 'index.json'));
+    const disposableDomains = JSON.parse(disposableDomainsBuffer.toString());
+    cachedDomains = disposableDomains;
+    return disposableDomains;
+});
 // Function to detect disposable email addresses
 function disposableEmailDetector(email) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             // Load the list of disposable email domains from the index.json file
-            const disposableDomainsBuffer = yield promises_1.default.readFile(path_1.default.join(__dirname, 'index.json'));
-            const disposableDomains = JSON.parse(disposableDomainsBuffer.toString());
+            const disposableDomains = yield loadDomains();
             // Extract the domain from the email address
             const domain = email.split('@')[1].toLowerCase(); // Get the domain part of the email address and convert it to lowercase
             // Check if the domain is in the list of disposable domains 
@@ -40,4 +49,3 @@ function disposableEmailDetector(email) {
         }
     });
 }
-exports.default = disposableEmailDetector;
