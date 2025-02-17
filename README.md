@@ -1,6 +1,5 @@
 # Disposable Email Detector
 
-[![CodeScene Code Health](https://codescene.io/projects/50926/status-badges/code-health)](https://codescene.io/projects/50926)
 [![DeepScan grade](https://deepscan.io/api/teams/23370/projects/26631/branches/850159/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=23370&pid=26631&bid=850159)
 ![workflow](https://github.com/IntegerAlex/disposable-email-detector/actions/workflows/main.yml/badge.svg)
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/8638/badge)](https://www.bestpractices.dev/projects/8638)
@@ -48,3 +47,13 @@ The disposableEmailDetector function reads a list of disposable email domains fr
 - If `index.json` is not found, the script informs you to create it with disposable domains.
 - If `index.json` has an invalid JSON format, it prompts you to correct the file.
 - Unexpected errors are logged to the console.
+
+## Contributing
+
+Contributions are welcome! Please refer to the [contributing guidelines](CONTRIBUTING.md) for more information.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+```
+
