@@ -1,6 +1,6 @@
 {
   "name": "disposable-email-detector",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "disposable email detector",
   "main": "index.js",
   "scripts": {
@@ -18,16 +18,16 @@
     "disposable-email"
   ],
   "author": "Akshat Kotpalliwar ( alias IntegerAlex on GitHub )",
-	"repository": {
+  "repository": {
     "type": "git",
     "url": "https://www.github.com/IntegerAlex/disposable-email-detector"
-	},
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.11.25",
     "typescript": "^5.4.2"
   },
   "dependencies": {
-    "disposable-email-detector": "^1.0.1"
+    "disposable-email-detector": "^3.0.0"
   }
 }
