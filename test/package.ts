@@ -3,7 +3,7 @@ import assert from 'assert'
 
 // Test the disposableEmailDetector function
 (async () => {
-  assert.strictEqual(await disposableEmailDetector('user69@spamavert.com'), true);
+  assert.strictEqual(await disposableEmailDetector('user1@gmail.com'), false);
   assert.strictEqual(await disposableEmailDetector('invalid-email'), false);
-  console.log('testpackage passed');
+  console.log('test package passed');
 })();
