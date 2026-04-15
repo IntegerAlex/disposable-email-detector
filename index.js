@@ -39,7 +39,6 @@ const loadDomainsFromExternalSource = (_a) => __awaiter(void 0, [_a], void 0, fu
     const URL = github ? "https://raw.githubusercontent.com/IntegerAlex/disposable-email-detector/refs/heads/main/index.json" : url;
     if (!URL)
         throw new ExternalSourceError();
-    console.info(`Loading disposable domains from ${URL}`);
     try {
         const response = yield fetch(URL);
         const disposableDomains = yield response.json();
