@@ -3,6 +3,7 @@ import assert from 'assert'
 
 // Test the disposableEmailDetector function
 (async () => {
+  assert.strictEqual(await disposableEmailDetector('user@mailinator.com'), true);
   assert.strictEqual(await disposableEmailDetector('user1@gmail.com'), false);
   assert.strictEqual(await disposableEmailDetector('invalid-email'), false);
   assert.strictEqual(await disposableEmailDetector('@'), false);
