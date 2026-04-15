@@ -1,6 +1,9 @@
-import disposableEmailDetector from 'disposable-email-detector'
+import disposableEmailDetector from '../index'
+import assert from 'assert'
 
 // Test the disposableEmailDetector function
 (async () => {
-  console.log(await disposableEmailDetector('user69@spamavert.com')); // false
+  assert.strictEqual(await disposableEmailDetector('user69@spamavert.com'), true);
+  assert.strictEqual(await disposableEmailDetector('invalid-email'), false);
+  console.log('testpackage passed');
 })();
