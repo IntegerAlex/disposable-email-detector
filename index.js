@@ -62,7 +62,10 @@ function disposableEmailDetector(email, options) {
                 disposableDomains = yield loadDomains();
             }
             // Extract the domain from the email address
-            const domain = email.split('@')[1].toLowerCase(); // Get the domain part of the email address and convert it to lowercase
+            const domainPart = email.split('@')[1];
+            if (!domainPart)
+                return false;
+            const domain = domainPart.toLowerCase(); // Get the domain part of the email address and convert it to lowercase
             // Check if the domain is in the list of disposable domains 
             return disposableDomains.includes(domain);
         }
