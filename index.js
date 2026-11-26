@@ -21,7 +21,7 @@ const loadDomains = () => __awaiter(void 0, void 0, void 0, function* () {
     if (cachedDomains)
         return cachedDomains;
     const disposableDomainsBuffer = yield promises_1.default.readFile(path_1.default.join(__dirname, 'index.json'));
-    const disposableDomains = JSON.parse(disposableDomainsBuffer.toString());
+    const disposableDomains = new Set(JSON.parse(disposableDomainsBuffer.toString()));
     cachedDomains = disposableDomains;
     return disposableDomains;
 });
@@ -41,7 +41,7 @@ const loadDomainsFromExternalSource = (_a) => __awaiter(void 0, [_a], void 0, fu
         throw new ExternalSourceError();
     try {
         const response = yield fetch(URL);
-        const disposableDomains = yield response.json();
+        const disposableDomains = new Set(yield response.json());
         cachedDomains = disposableDomains;
         return disposableDomains;
     }
@@ -53,7 +53,7 @@ const loadDomainsFromExternalSource = (_a) => __awaiter(void 0, [_a], void 0, fu
 function disposableEmailDetector(email, options) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            let disposableDomains = [];
+            let disposableDomains;
             // Load from external source
             if (options === null || options === void 0 ? void 0 : options.loadFromSource) {
                 disposableDomains = yield loadDomainsFromExternalSource(options.loadFromSource);
@@ -64,7 +64,7 @@ function disposableEmailDetector(email, options) {
             // Extract the domain from the email address
             const domain = email.split('@')[1].toLowerCase(); // Get the domain part of the email address and convert it to lowercase
             // Check if the domain is in the list of disposable domains 
-            return disposableDomains.includes(domain);
+            return disposableDomains.has(domain);
         }
         catch (error) {
             if (error.code === 'ENOENT') {
