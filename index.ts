@@ -6,7 +6,9 @@ let cachedDomains: Set<string> | undefined = undefined;
 const loadDomains = async () => {
   if(cachedDomains) return cachedDomains;
   const disposableDomainsBuffer = await fs.readFile(path.join(__dirname, 'index.json')); 
-  const disposableDomains = new Set<string>(JSON.parse(disposableDomainsBuffer.toString()));
+  const parsed = JSON.parse(disposableDomainsBuffer.toString());
+  if (!Array.isArray(parsed)) throw new TypeError('Disposable domain list must be an array');
+  const disposableDomains = new Set<string>(parsed);
   cachedDomains = disposableDomains;
   return disposableDomains;
 }
@@ -25,7 +27,9 @@ const loadDomainsFromExternalSource = async ({github, url}: LoadFromSource) => {
     if (!URL) throw new ExternalSourceError();
     try {
         const response = await fetch(URL);
-        const disposableDomains = new Set<string>(await response.json());
+        const parsed = await response.json();
+        if (!Array.isArray(parsed)) throw new TypeError('Disposable domain list must be an array');
+        const disposableDomains = new Set<string>(parsed);
         cachedDomains = disposableDomains;
         return disposableDomains;
     } catch (error) {

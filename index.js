@@ -21,7 +21,10 @@ const loadDomains = () => __awaiter(void 0, void 0, void 0, function* () {
     if (cachedDomains)
         return cachedDomains;
     const disposableDomainsBuffer = yield promises_1.default.readFile(path_1.default.join(__dirname, 'index.json'));
-    const disposableDomains = new Set(JSON.parse(disposableDomainsBuffer.toString()));
+    const parsed = JSON.parse(disposableDomainsBuffer.toString());
+    if (!Array.isArray(parsed))
+        throw new TypeError('Disposable domain list must be an array');
+    const disposableDomains = new Set(parsed);
     cachedDomains = disposableDomains;
     return disposableDomains;
 });
@@ -41,7 +44,10 @@ const loadDomainsFromExternalSource = (_a) => __awaiter(void 0, [_a], void 0, fu
         throw new ExternalSourceError();
     try {
         const response = yield fetch(URL);
-        const disposableDomains = new Set(yield response.json());
+        const parsed = yield response.json();
+        if (!Array.isArray(parsed))
+            throw new TypeError('Disposable domain list must be an array');
+        const disposableDomains = new Set(parsed);
         cachedDomains = disposableDomains;
         return disposableDomains;
     }
