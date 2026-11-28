@@ -1,10 +1,10 @@
 {
   "name": "disposable-email-detector",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "disposable email detector",
   "main": "index.js",
   "scripts": {
-    "test": "node test/usage.js",
+    "test": "node test/package.js && node test/usage.js",
     "build": "tsc",
     "start": "node index.js",
     "testpackage": "node test/package.js"
